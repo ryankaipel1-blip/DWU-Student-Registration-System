@@ -22,10 +22,12 @@ app.use(session({
 const { users, financeRecords, accommodations } = require('./models/data');
 
 // Routes
+// Routes
 app.use('/', require('./routes/auth'));
 app.use('/student', require('./routes/student'));
 app.use('/finance', require('./routes/finance'));
 app.use('/accommodation', require('./routes/accommodation'));
+app.use('/admin', require('./routes/admin'));   // ← Add this line
 
 // Home Route
 app.get('/', (req, res) => res.render('login'));

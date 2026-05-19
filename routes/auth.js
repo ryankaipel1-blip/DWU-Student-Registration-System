@@ -9,6 +9,7 @@ router.post('/login', (req, res) => {
   
   if (user) {
     req.session.user = user;
+    console.log(`✅ Login successful: ${user.username} (${user.role})`);
     
     if (user.role === 'student') {
       res.redirect('/student/dashboard');
@@ -18,9 +19,16 @@ router.post('/login', (req, res) => {
       res.redirect('/admin/dashboard');
     } else if (user.role === 'accommodation') {
       res.redirect('/accommodation/dashboard');
+    } else {
+      res.redirect('/');
     }
   } else {
-    res.send('<h2>Invalid credentials! <a href="/">Try Again</a></h2>');
+    res.send(`
+      <h2 style="color:red; text-align:center; margin-top:50px;">
+        Invalid credentials!<br><br>
+        <a href="/">← Try Again</a>
+      </h2>
+    `);
   }
 });
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - DWU</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, <%= user.first_name %> <%= user.last_name %> 👋</h1>
+    <p><strong>Student ID:</strong> <%= user.student_id %></p>
+    
+    <h2>Current Status</h2>
+    <p><strong>Residency:</strong> 
+      <span class="<%= user.residency_type === 'Residential' ? 'status-approved' : 'status-pending' %>">
+        <%= user.residency_type %>
+      </span>
+    </p>
+    
+    <% if (user.balance && user.balance > 0) { %>
+      <p><strong>Amount Due:</strong> <span style="color:red; font-weight:bold;">K <%= user.balance %></span></p>
+      <p><strong>Please pay at the bank and submit receipt to Finance.</strong></p>
+    <% } else { %>
+      <p><strong>Fee Status:</strong> <%= user.fee_status || 'Paid' %></p>
+    <% } %>
+
+    <% if (user.residency_type === 'Non-Residential') { %>
+      <a href="/student/request-change"><button>Request Change to Residential</button></a>
+    <% } %>
+
+    <br>
+    <a href="/logout"><button style="background:#e74c3c;">Logout</button></a>
+  </div>
+</body>
+</html>
