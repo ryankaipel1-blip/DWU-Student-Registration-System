@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - DWU</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🛠️ System Administrator Dashboard</h1>
+    <h2>Welcome, System Admin</h2>
+
+    <h3>Management Tools</h3>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 25px;">
+      <a href="/admin/add-student">
+        <button style="width:100%; padding:25px; font-size:17px;">➕ Add New Student</button>
+      </a>
+      <a href="/admin/view-students">
+        <button style="width:100%; padding:25px; font-size:17px;">👥 View All Registered Students</button>
+      </a>
+      <a href="/admin/reports">
+        <button style="width:100%; padding:25px; font-size:17px;">📊 Generate Reports</button>
+      </a>
+      <a href="/admin/manage-users">
+        <button style="width:100%; padding:25px; font-size:17px;">🔧 Manage User Accounts</button>
+      </a>
+    </div>
+
+    <br><br>
+    <a href="/logout">
+      <button style="background:#e74c3c; width:100%; padding:15px;">Logout</button>
+    </a>
+  </div>
+</body>
+</html>

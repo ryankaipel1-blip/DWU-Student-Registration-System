@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success - DWU</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container" style="text-align:center; max-width:650px;">
+    <h1 style="color:#27ae60;">✅ <%= message || "Operation Completed Successfully!" %></h1>
+    
+    <% if (studentName) { %>
+      <h2>Student: <strong><%= studentName %></strong></h2>
+    <% } %>
+
+    <% if (newStatus) { %>
+      <p>New Status: <strong><%= newStatus %></strong></p>
+    <% } %>
+
+    <% if (typeof balance !== 'undefined' && balance > 0) { %>
+      <p style="color:red; font-weight:bold;">Amount Due: K <%= balance %></p>
+    <% } %>
+
+    <br><br>
+    <a href="/admin/dashboard"><button>← Back to Admin Dashboard</button></a>
+    <a href="/finance/dashboard"><button>← Back to Finance Dashboard</button></a>
+  </div>
+</body>
+</html>

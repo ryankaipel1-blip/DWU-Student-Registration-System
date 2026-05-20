@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Registered Students - DWU</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>👥 All Registered Students (<%= students ? students.length : 0 %>)</h1>
+    
+    <table>
+      <tr>
+        <th>Student ID</th>
+        <th>Full Name</th>
+        <th>Username</th>
+        <th>Residency</th>
+        <th>Balance Due</th>
+      </tr>
+      <% if (students && students.length > 0) { %>
+        <% students.forEach(student => { %>
+        <tr>
+          <td><%= student.student_id || 'N/A' %></td>
+          <td><%= student.first_name %> <%= student.last_name %></td>
+          <td><%= student.username %></td>
+          <td><span class="<%= student.residency_type === 'Residential' ? 'status-approved' : 'status-pending' %>"><%= student.residency_type %></span></td>
+          <td><%= student.balance > 0 ? 'K ' + student.balance : 'Paid' %></td>
+        </tr>
+        <% }); %>
+      <% } else { %>
+        <tr><td colspan="5" style="text-align:center; padding:40px;">No students registered yet.</td></tr>
+      <% } %>
+    </table>
+
+    <br><br>
+    <a href="/admin/dashboard"><button>← Back to Admin Dashboard</button></a>
+  </div>
+</body>
+</html>

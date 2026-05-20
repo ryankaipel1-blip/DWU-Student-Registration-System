@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Dashboard - DWU</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💰 Finance Office Dashboard</h1>
+    <h2>Update Student Information</h2>
+
+    <form action="/finance/update-status" method="POST">
+      <label>Student ID:</label>
+      <input type="text" name="current_student_id" value="S23001" required><br><br>
+
+      <label>New Student ID (optional):</label>
+      <input type="text" name="new_student_id" placeholder="Leave blank if no change"><br><br>
+
+      <label>New Residency Status:</label>
+      <select name="residency_type">
+        <option value="Residential">Residential</option>
+        <option value="Non-Residential">Non-Residential</option>
+      </select><br><br>
+
+      <label>Amount Due (K):</label>
+      <input type="number" name="balance" value="0" step="0.01"><br><br>
+
+      <button type="submit">Update Student</button>
+    </form>
+
+    <br><br>
+    <a href="/logout"><button style="background:#e74c3c;">Logout</button></a>
+  </div>
+</body>
+</html>
